@@ -25,25 +25,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             YoutubeLiveTVTheme {
-                YoutubeScreen("Owke6Quk7T0")
+                YoutubeScreen("PLTofZ65pid3XOWkXMo_CxXXfNtcY2IV26")
             }
         }
-    }
-}
-
-@OptIn(ExperimentalTvMaterial3Api::class)
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    YoutubeLiveTVTheme {
-        Greeting("Android")
     }
 }
