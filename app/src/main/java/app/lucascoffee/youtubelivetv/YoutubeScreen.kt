@@ -8,7 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
@@ -18,10 +18,12 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 @Composable
 fun YoutubeScreen(
-    playListId: String,
+    youtubeId: String,
     modifier: Modifier = Modifier
 ) {
     var player by remember<MutableState<YouTubePlayer?>> { mutableStateOf(null) }
+
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
 
     DisposableEffect(Unit) {
         onDispose { player = null }
@@ -45,14 +47,13 @@ fun YoutubeScreen(
                         .rel(0)
                         .ivLoadPolicy(1)
                         .ccLoadPolicy(1)
-                        .listType("playlist")
-                        .list(playListId)
                         .build()
                 )
+                lifecycle.addObserver(this)
             }
         },
         update = {
-            player?.loadVideo(playListId, 0f)
+            player?.loadVideo(youtubeId, 0f)
         }
     )
 }
