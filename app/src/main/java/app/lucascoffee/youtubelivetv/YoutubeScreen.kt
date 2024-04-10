@@ -54,6 +54,7 @@ fun YoutubeScreen(
         },
         update = {
             player?.loadVideo(youtubeId, 0f)
-        }
+        },
+        modifier = modifier
     )
 }
