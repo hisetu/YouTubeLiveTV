@@ -64,4 +64,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.androidyoutubeplayer)
+    implementation(libs.timber)
 }
