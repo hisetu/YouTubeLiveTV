@@ -48,9 +48,8 @@ class MainActivity : ComponentActivity() {
 
                 Box {
                     YoutubeScreen(
-                        CHANNELS.getOrNull(index)?.youtubeId ?: "", modifier = Modifier.background(
-                            Color.Red
-                        )
+                        youtubeId = CHANNELS.getOrNull(index)?.youtubeId ?: "",
+                        modifier = Modifier.background(Color.Red)
                     )
 
                     Text(
