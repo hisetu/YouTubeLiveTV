@@ -1,5 +1,6 @@
 package app.lucascoffee.youtubelivetv
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.MutableState
@@ -15,12 +16,14 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import timber.log.Timber
 
 @Composable
 fun YoutubeScreen(
     youtubeId: String,
     modifier: Modifier = Modifier
 ) {
+    Timber.d(youtubeId)
     var player by remember<MutableState<YouTubePlayer?>> { mutableStateOf(null) }
 
     val lifecycle = LocalLifecycleOwner.current.lifecycle
