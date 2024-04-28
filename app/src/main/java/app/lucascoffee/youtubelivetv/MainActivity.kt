@@ -18,6 +18,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -46,10 +52,33 @@ class MainActivity : ComponentActivity() {
             YoutubeLiveTVTheme {
                 var index by remember { mutableIntStateOf(0) }
 
-                Box {
+                Box(modifier = Modifier
+                    .clickable { }
+                    .onKeyEvent {
+                        Timber.d(it.toString())
+                        if (it.type == KeyEventType.KeyUp) {
+                            when (it.key) {
+                                Key.DirectionUp -> {
+                                    if (index < CHANNELS.lastIndex)
+                                        index += 1
+                                    else
+                                        index = 0
+                                }
+
+                                Key.DirectionDown -> {
+                                    if (index > 0)
+                                        index -= 1
+                                    else
+                                        index = CHANNELS.lastIndex
+                                }
+                            }
+                        }
+                        false
+                    }) {
                     YoutubeScreen(
                         youtubeId = CHANNELS.getOrNull(index)?.youtubeId ?: "",
-                        modifier = Modifier.background(Color.Red)
+                        modifier = Modifier
+                            .background(Color.Red)
                     )
 
                     Text(
@@ -59,27 +88,6 @@ class MainActivity : ComponentActivity() {
                             .offset(x = (-30).dp),
                         style = TextStyle(fontSize = 50.sp, color = Color.Red)
                     )
-                    Row(
-                        modifier = Modifier.align(Alignment.BottomCenter),
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)
-                    ) {
-                        Button(onClick = { }, modifier = Modifier.clickable {
-                            if (index > 0)
-                                index -= 1
-                            else
-                                index = CHANNELS.lastIndex
-                        }) {
-                            Text("上一台")
-                        }
-                        Button(onClick = { }, modifier = Modifier.clickable {
-                            if (index < CHANNELS.lastIndex)
-                                index += 1
-                            else
-                                index = 0
-                        }) {
-                            Text("下一台")
-                        }
-                    }
                 }
             }
         }
