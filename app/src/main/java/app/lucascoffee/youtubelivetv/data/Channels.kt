@@ -18,11 +18,33 @@ val CHANNELS = listOf(
     Channel("民視新聞台", "ylYJSBUgaMA"),
     Channel("寰宇新聞台", "6IquAgfvYmc"),
     Channel("寰宇新聞 台灣台", "w87VGpgd90U"),
-
     Channel("東森財經新聞", "WHEPzbFA3hw"),
     Channel("57東森財經新聞", "LuQ4S-i5zoE"),
     Channel("中天新聞", "oIgbl7t0S_w"),
 
+    Channel("大愛一臺", "MIqUplvSRWA"),
+    Channel("大愛二臺", "OKvWtVoDR8I"),
+    Channel("信大電視台", "ciwFpYofb28"),
+
+    Channel("蠟筆小新TV版", "_jP5o1W3eW0"),
+    Channel("我們這一家", "UK81GCw1KE8"),
+    Channel("豬哥會社", "htGDPsz2BYI"),
+
+    Channel("花蓮赤科山即時影像", "5GTFLN9gZrc"),
+    Channel("臺東鹿野高台即時影像", "rvc1klNIgQc"),
+    Channel("桃園國際機場即時影像", "91PfFoqvuUk"),
+    Channel("劍潭山微風平台", "34h_Cy_n0Ok"),
+    Channel("碧山巖", "uvwfYzwY8tg"),
+    Channel("大佳河濱公園", "fP4ecxfsJos"),
+    Channel("大稻埕碼頭", "Ndo_8RuefH4"),
+    Channel("象山看台北", "z_fY1pj1VBw"),
+    Channel("東海岸即時影像 - 綠島帆船鼻", "pLdBc8PvZko"),
+    Channel("東海岸即時影像 - 石梯坪", "mXnigLvIL0Q"),
+    Channel("東海岸即時影像 - 加路蘭遊憩區", "AKl3F6cAY2Q"),
+    Channel("東海岸即時影像 - 三仙台", "dQ7Sd6PGLdA"),
+    Channel("東海岸即時影像 - 都歷遊客中心", "JhQuR77AR7U"),
+    Channel("東海岸即時影像 - 金樽遊憩區", "ZdqHgQwvZOw"),
+    Channel("東海岸即時影像 - 綠島南寮漁港", "wTHhv7M0vCI"),
     Channel("台灣地震監視", "Owke6Quk7T0"),
 )
 
