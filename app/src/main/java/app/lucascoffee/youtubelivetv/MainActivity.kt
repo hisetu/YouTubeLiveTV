@@ -53,7 +53,6 @@ class MainActivity : ComponentActivity() {
                 var index by remember { mutableIntStateOf(0) }
 
                 Box(modifier = Modifier
-                    .clickable { }
                     .onKeyEvent {
                         Timber.d(it.toString())
                         if (it.type == KeyEventType.KeyUp) {
@@ -63,6 +62,7 @@ class MainActivity : ComponentActivity() {
                                         index += 1
                                     else
                                         index = 0
+                                    true
                                 }
 
                                 Key.DirectionDown -> {
@@ -70,10 +70,13 @@ class MainActivity : ComponentActivity() {
                                         index -= 1
                                     else
                                         index = CHANNELS.lastIndex
+                                    true
                                 }
+
+                                else -> false
                             }
-                        }
-                        false
+                        } else
+                            false
                     }) {
                     YoutubeScreen(
                         youtubeId = CHANNELS.getOrNull(index)?.youtubeId ?: "",
