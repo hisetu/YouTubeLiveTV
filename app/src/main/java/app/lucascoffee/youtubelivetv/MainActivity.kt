@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.getValue
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
                 var index by remember { mutableIntStateOf(0) }
 
                 Box(modifier = Modifier
+                    .clickable {  }
                     .onKeyEvent {
                         Timber.d(it.toString())
                         if (it.type == KeyEventType.KeyUp) {
