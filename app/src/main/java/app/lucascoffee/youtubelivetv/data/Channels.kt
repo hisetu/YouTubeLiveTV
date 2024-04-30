@@ -29,6 +29,9 @@ val CHANNELS = listOf(
     Channel("大陸尋奇", "fl1iFkAWcVU"),
     Channel("MIT台灣誌", "9d4ggywa01w"),
 
+    Channel("MOMO歡樂谷", "R3PZkCUJSbQ"),
+    Channel("MOMO這一家S3 ", "nCb85URH8S0"),
+    Channel("聽聽成語故事 & 一起學成語 ", "cuzuDUlH7P4"),
     Channel("蠟筆小新TV版", "_jP5o1W3eW0"),
     Channel("我們這一家", "UK81GCw1KE8"),
     Channel("中華一番！", "2FJcu6qsM2k"),
