@@ -25,10 +25,21 @@ val CHANNELS = listOf(
     Channel("大愛一臺", "MIqUplvSRWA"),
     Channel("大愛二臺", "OKvWtVoDR8I"),
     Channel("信大電視台", "ciwFpYofb28"),
+    Channel("momo購物一台", "_pZQ1Lk0xMA"),
+    Channel("大陸尋奇", "fl1iFkAWcVU"),
+    Channel("MIT台灣誌", "9d4ggywa01w"),
 
     Channel("蠟筆小新TV版", "_jP5o1W3eW0"),
     Channel("我們這一家", "UK81GCw1KE8"),
+    Channel("中華一番！", "2FJcu6qsM2k"),
+    Channel("JOJO的奇妙冒險S1～S4", "pMR3iehJMjk"),
+
+    Channel("大熱門猜歌王", "L9cBf3oAO0"),
     Channel("豬哥會社", "htGDPsz2BYI"),
+
+    Channel("新玫瑰瞳鈴眼", "dZNl1pqkPuA"),
+    Channel("藍色水玲瓏", "298QROP4xe0"),
+    Channel("台灣啟示錄", "0qb7ND0_E6k"),
 
     Channel("花蓮赤科山即時影像", "5GTFLN9gZrc"),
     Channel("臺東鹿野高台即時影像", "rvc1klNIgQc"),
