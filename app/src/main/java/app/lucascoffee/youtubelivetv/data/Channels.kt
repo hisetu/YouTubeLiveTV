@@ -26,8 +26,13 @@ val CHANNELS = listOf(
     Channel("大愛二臺", "OKvWtVoDR8I"),
     Channel("信大電視台", "ciwFpYofb28"),
     Channel("momo購物一台", "_pZQ1Lk0xMA"),
+
+
     Channel("大陸尋奇", "fl1iFkAWcVU"),
     Channel("MIT台灣誌", "9d4ggywa01w"),
+    Channel("【非凡大探索】台北美食篇", "rQUP8Ck27gc"),
+    Channel("【非凡大探索】高雄美食篇", "bOcfle08bWA"),
+    Channel("【非凡大探索】台中美食篇", "T2udU5Crz4I"),
 
     Channel("MOMO歡樂谷", "R3PZkCUJSbQ"),
     Channel("MOMO這一家S3 ", "nCb85URH8S0"),
@@ -37,6 +42,8 @@ val CHANNELS = listOf(
     Channel("中華一番！", "2FJcu6qsM2k"),
     Channel("JOJO的奇妙冒險S1～S4", "pMR3iehJMjk"),
 
+    Channel("天才衝衝衝", "ZcqrFVxU"),
+    Channel("代嘉慶君", "IsFtLpSuf_g"),
     Channel("大熱門猜歌王", "L9cBf3oAO0"),
     Channel("豬哥會社", "htGDPsz2BYI"),
 
