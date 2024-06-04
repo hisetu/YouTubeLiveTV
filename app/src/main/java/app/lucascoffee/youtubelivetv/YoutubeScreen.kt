@@ -1,6 +1,5 @@
 package app.lucascoffee.youtubelivetv
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.MutableState
