@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("..\\keystore.jks")
+            storePassword = "27865834"
+            keyAlias = "lucas"
+            keyPassword = "27865834"
+        }
+    }
     namespace = "app.lucascoffee.youtubelivetv"
     compileSdk = 34
 
@@ -27,6 +35,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
