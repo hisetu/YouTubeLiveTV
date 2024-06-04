@@ -44,7 +44,10 @@ class MainViewModel : ViewModel() {
     fun loadChannels() {
         flow { emit(client.get("https://yttv.lucascoffee.app/channels").body() as ChannelResponse) }
             .onEach { res ->
-                _uiState.update { it.copy(channels = res.channels.map { Channel(it.name, it.id) }) }
+                _uiState.update { state ->
+                    state.copy(channels = res.channels
+                        .map { Channel(it.name, it.id) })
+                }
             }
             .catch {
                 Timber.e(it.message)

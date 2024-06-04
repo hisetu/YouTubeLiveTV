@@ -21,8 +21,10 @@ import androidx.compose.ui.input.key.type
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.tv.material3.ExperimentalTvMaterial3Api
+import androidx.lifecycle.Lifecycle
 import androidx.tv.material3.Text
+import app.lucascoffee.youtubelivetv.ComposableLifecycle
+import app.lucascoffee.youtubelivetv.MainUiState
 import app.lucascoffee.youtubelivetv.MainViewModel
 import app.lucascoffee.youtubelivetv.YoutubeScreen
 import timber.log.Timber
@@ -32,27 +34,48 @@ fun TvScreen(viewModel: MainViewModel) {
     var index by remember { mutableIntStateOf(0) }
     val state by viewModel.uiState.collectAsState()
 
+    ComposableLifecycle { source, event ->
+        if (event == Lifecycle.Event.ON_RESUME) {
+            viewModel.loadChannels()
+        }
+    }
+
+    TvScreenContent(
+        onDirectionUp = {
+            if (index < state.channels.lastIndex)
+                index += 1
+            else
+                index = 0
+            true
+        },
+        onDirectionDown = {
+            if (index > 0)
+                index -= 1
+            else
+                index = state.channels.lastIndex
+            true
+        },
+        state = state,
+        index = index
+    )
+}
+
+@Composable
+private fun TvScreenContent(
+    onDirectionUp: () -> Boolean,
+    onDirectionDown: () -> Boolean,
+    state: MainUiState,
+    index: Int
+) {
     Box(modifier = Modifier
         .clickable { }
         .onKeyEvent {
             Timber.d(it.toString())
             if (it.type == KeyEventType.KeyUp) {
                 when (it.key) {
-                    Key.DirectionUp -> {
-                        if (index < state.channels.lastIndex)
-                            index += 1
-                        else
-                            index = 0
-                        true
-                    }
+                    Key.DirectionUp -> onDirectionUp()
 
-                    Key.DirectionDown -> {
-                        if (index > 0)
-                            index -= 1
-                        else
-                            index = state.channels.lastIndex
-                        true
-                    }
+                    Key.DirectionDown -> onDirectionDown()
 
                     else -> false
                 }
