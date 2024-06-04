@@ -1,6 +1,5 @@
 package app.lucascoffee.youtubelivetv
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.lucascoffee.youtubelivetv.data.model.Channel
