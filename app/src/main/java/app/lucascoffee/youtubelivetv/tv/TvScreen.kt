@@ -28,7 +28,6 @@ import app.lucascoffee.youtubelivetv.YoutubeScreen
 import timber.log.Timber
 
 @Composable
-@OptIn(ExperimentalTvMaterial3Api::class)
 fun TvScreen(viewModel: MainViewModel) {
     var index by remember { mutableIntStateOf(0) }
     val state by viewModel.uiState.collectAsState()
