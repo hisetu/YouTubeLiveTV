@@ -3,11 +3,18 @@ package app.lucascoffee.youtubelivetv.tv
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -27,6 +34,7 @@ import app.lucascoffee.youtubelivetv.ComposableLifecycle
 import app.lucascoffee.youtubelivetv.MainUiState
 import app.lucascoffee.youtubelivetv.MainViewModel
 import app.lucascoffee.youtubelivetv.YoutubeScreen
+import kotlinx.coroutines.delay
 import timber.log.Timber
 
 @Composable
@@ -67,6 +75,14 @@ private fun TvScreenContent(
     state: MainUiState,
     index: Int
 ) {
+    var showInfo by remember { mutableStateOf(true) }
+
+    LaunchedEffect(index) {
+        showInfo = true
+        delay(5_000)
+        showInfo = false
+    }
+
     Box(modifier = Modifier
         .clickable { }
         .onKeyEvent {
@@ -82,18 +98,32 @@ private fun TvScreenContent(
             } else
                 false
         }) {
+        val channel = state.channels.getOrNull(index)
+
         YoutubeScreen(
-            youtubeId = state.channels.getOrNull(index)?.youtubeId ?: "",
+            youtubeId = channel?.youtubeId ?: "",
             modifier = Modifier
                 .background(Color.Red)
         )
 
-        Text(
-            text = index.toString(),
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .offset(x = (-30).dp),
-            style = TextStyle(fontSize = 50.sp, color = Color.Red)
-        )
+        if (showInfo)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.Gray.copy(alpha = 0.7f))
+                    .padding(horizontal = 20.dp)
+            ) {
+                Text(
+                    text = channel?.name ?: "",
+                    style = TextStyle(fontSize = 50.sp, color = Color.Black)
+                )
+
+                Spacer(Modifier.weight(1f))
+
+                Text(
+                    text = index.toString(),
+                    style = TextStyle(fontSize = 50.sp, color = Color.Black)
+                )
+            }
     }
 }
