@@ -8,8 +8,8 @@ composeBom = "2024.09.00"
 timber = "5.0.1"
 tvFoundation = "1.0.0-alpha11"
 tvMaterial = "1.0.0"
-lifecycleRuntimeKtx = "2.8.4"
-activityCompose = "1.9.1"
+lifecycleRuntimeKtx = "2.8.5"
+activityCompose = "1.9.2"
 ktor = "2.3.11"
 
 [libraries]
