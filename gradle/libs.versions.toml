@@ -1,15 +1,15 @@
 [versions]
 agp = "8.6.1"
 kotlin = "2.0.0"
-androidyoutubeplayer = "11.1.0"
 coreKtx = "1.13.1"
 appcompat = "1.7.0"
-composeBom = "2024.09.02"
-timber = "5.0.1"
-tvFoundation = "1.0.0-alpha11"
-tvMaterial = "1.0.0"
-lifecycleRuntimeKtx = "2.8.5"
 activityCompose = "1.9.2"
+lifecycleRuntimeKtx = "2.8.5"
+composeBom = "2024.09.02"
+tvMaterial = "1.0.0"
+tvFoundation = "1.0.0-alpha11"
+timber = "5.0.1"
+androidyoutubeplayer = "11.1.0"
 ktor = "2.3.11"
 
 [libraries]
